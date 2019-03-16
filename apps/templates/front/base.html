@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>{% block title %}{{ title }}{% endblock title %}</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+        <meta name="author" content="CaiCai,hi@cai-cai.me"/>
+        <meta name="keywords"
+              content="CaiCai,UI,UX,Dribbble,UX &amp; UI Designer,App design,Interaction design, Icon design, Web design"/>
+        <meta name="description" content="A other farbox theme"/>
+        <link rel="short icon" href="{{ url_for('static',filename='user/user_Face/default.jpg') }}" type="image/x-icon">
+        <link href="{{ url_for('static',filename='front/css/font-awesome.min.css') }}" type="text/css"
+              rel="stylesheet"/>
+        <link href="{{ url_for('static',filename='front/css/blog_basic.css') }}" type="text/css" rel="stylesheet"/>
+        <link href="{{ url_for('static',filename='front/css/style.css') }}" type="text/css" rel="stylesheet"/>
+        {% block customer_css %}
+        {% endblock customer_css %}
+    {% endblock head %}
+</head>
+<body>
+<div class="sidebar animated fadeInDown">
+    {% block sidebar %}
+        <div class="logo-title">
+            <div class="title">
+                <h3 title=""><a href="/">{% block sidebar_title %}狂莽{% endblock sidebar_title %}</a>
+                </h3>
+                <div class="description">
+                    <p>{% block sidebar_desc %}轻度宅男,程序员博客{% endblock sidebar_desc %}</p>
+                </div>
+            </div>
+        </div>
+        <ul class="social-links">
+            <li><a href="https://twitter.com/qweq"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="http://instagram.com/we"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li><a href="https://dribbble.com/qwe"><i class="fa fa-dribbble"></i></a>
+            </li>
+            <li><a href="http://weibo.com/qweqwe"><i class="fa fa-weibo"></i></a>
+            </li>
+        </ul>
+        <div class="footer">
+            <a target="_blank" href="http://None"><span>Designed by </span><a href="https://www.caicai.me">CaiCai</a>
+                <div class="by_farbox"><a href="http://www.farbox.com" target="_blank">Proudly published with Farbox&#65281;</a>
+                </div>
+            </a>
+        </div>
+    {% endblock sidebar %}
+</div>
+<div class="main">
+    <div class="page-top animated fadeInDown">
+        <div class="nav">
+            <li><a href="/" class="{% if request.path == '/' %}current{% endif %}">首页 </a>
+            </li>
+            <li><a class="{% if url_for('main.about') is current_url %}current{% endif %}"
+                   href="{{ url_for('main.about') }}">关于我</a>
+            </li>
+            <li><a class="{% if url_for('main.archive') is current_url %}current{% endif %}" href="/archive">归档</a>
+            </li>
+            <li><a class="{% if url_for('main.links') is current_url %}current{% endif %}" href="/links">友链</a>
+            </li>
+        </div>
+        {% block information %}
+            <div class="information">
+                <div class="back_btn">
+                    <li><a onclick="window.history.go(-1)" style="display:none;" class="fa fa-chevron-left"></a>
+                    </li>
+                </div>
+                <div class="avatar"><img src="{{ url_for('static',filename='user/user_face/default.jpg') }}"/>
+                </div>
+            </div>
+        {% endblock information %}
+    </div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+            {% block content %}
+            {% endblock content %}
+            {% block pagination %}
+                <div class="pagination">
+                    <ul class="clearfix">
+                        <li class="pre pagbuttons"><a role="navigation" href="/" class="btn">上一页</a></li>
+                        <li class="next pagbuttons"><a role="navigation" href="/page/3/" class="btn">下一页</a></li>
+                    </ul>
+                </div>
+            {% endblock pagination %}
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{{ url_for('static',filename='front/js/jquery/1.9.0/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='front/js/jquery-migrate-1.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='front/js/jquery.appear.js') }}"></script>
+</body>
+</html>

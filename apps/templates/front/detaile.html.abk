@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Ben Wong,wenbinben@gmail.com">
+    <title>非安全地带 · 无念</title>
+    <meta name="description"
+          content="作曲：Howie@Dear Jane作词：林宝活着每天兼顾著所有努力赚过的积累成拥有若是这么欺骗便足够装冷静又会否加倍难受世界太多封闭着窗口不过自问有多少倒头叫做借口不再年轻 要安定模式一切平息 叫活像困境过得太清醒 而磨蚀了反应谁曾经多么的珍惜 起落无定生命原应 原为拒认命过得太舒适 而蚕蚀了根性">
+    <meta name="keywords" content="许志安,Dear Jane,林宝">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <link rel="short icon"
+          href="https://secure.gravatar.com/avatar/e71df8021446fe9759a9928b1dd5c28d?s=180&amp;r=G&amp;d="
+          type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog_basic.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/duoshuo-disqus.css">
+    <link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml">
+</head>
+<body>
+<div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+        <div class="title"><h3><a href="/">无念</a></h3>
+            <div class="description"><p>Nothing lasts forever.</p></div>
+        </div>
+    </div>
+    <ul class="social-links">
+        <li><a href="https://twitter.com/Ben_wenbin"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="http://instagram.com/hwbinbenben"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="/atom.xml"><i class="fa fa-rss"></i></a></li>
+        <li><a href="http://weibo.com/ben0036"><i class="fa fa-weibo"></i></a></li>
+    </ul>
+    <div class="footer"><a href="https://benwong.cn" target="_blank"><span>© 2016 - 2017 Ben Wong</span></a>
+        <div class="by_farbox"><a href="https://github.com/Ben02/hexo-theme-Anatole" target="_blank"
+                                  title="Theme Anatole by CaiCai">Anatole </a><span>/ </span><a
+                href="http://hexo.io/zh-cn/" target="_blank"
+                title="Proudly published by Hexo">Hexo </a><span>/ </span><a
+                href="http://www.qcloud.com/redirect.php?redirect=1001&amp;cps_key=d7b87c3410e864867899d3861e51c432"
+                target="_blank" title="Cloud Server and CDN Provider">QCloud</a></div>
+        <div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank" title="演示使用，请勿当真！">粤ICP备000283739号</a>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top animated fadeInDown">
+        <div class="nav">
+            <li><a href="/">首页</a></li>
+            <li><a href="/about">关于</a></li>
+            <li><a href="/archives">归档</a></li>
+            <li><a href="/links">友链</a></li>
+        </div>
+        <div class="information">
+            <div class="back_btn">
+                <li><a onclick="window.history.go(-1)" class="fa fa-chevron-left"></a></li>
+            </div>
+            <div class="avatar">
+            </div>
+        </div>
+    </div>
+    <div class="autopagerize_page_element">
+        <div class="content">
+            <div class="post-page">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/js/jquery.appear.js"></script>
+<script>function findLink() {
+    var e = null, n = setTimeout(findLink, 200);
+    $("link[rel*=stylesheet]").each(function (i) {
+        var t = $(this).attr("href");
+        t.indexOf("styles/embed") > 0 && (e = $(this), e.remove(), clearTimeout(n))
+    })
+}
+
+$(document).ready(function () {
+    findLink()
+})</script>
+<script src="https://tomoki.cc/dist/js/wisplayer.js" data-no-instant></script>
+<script>wisplayer()</script>
+</body>
+</html>

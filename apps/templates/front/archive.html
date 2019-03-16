@@ -1,0 +1,35 @@
+{% extends 'front/base.html' %}
+{% block information %}
+    <div class="information">
+        <div class="back_btn">
+            <li><a onclick="window.history.go(-1)" style="display:none;" class="fa fa-chevron-left"></a>
+            </li>
+        </div>
+        <div class="avatar"><img src="{{ url_for('static',filename='user/user_face/default.jpg') }}">
+        </div>
+    </div>
+{% endblock information %}
+{% block content %}
+    <div class="archive animated fadeInDown">
+        <ul class="list-with-title">
+            {% for group in all_group %}
+                <div class="listing-title">{{ group.name }}</div>
+                <ul class="listing">
+                    {% for i in group.posts %}
+                        <div class="listing-item">
+                            <div class="listing-post"><a href="{{ url_for('post.details',post_id=i.id) }}" title="女司机">{{ i.title }}</a>
+                                <div class="post-time"><span class="date">{{ i.add_time.month }}-{{ i.add_time.day }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
+{% block pagination %}
+{% endblock pagination %}
+
+
+

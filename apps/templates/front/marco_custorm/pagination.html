@@ -1,0 +1,16 @@
+{% macro pagination(page_function,page_data) %}
+    <div class="pagination">
+        <ul class="clearfix">
+            {% if page_data.has_prev %}
+                <li class="pre pagbuttons"><a role="navigation"
+                                              href="{{ url_for(page_function,page=page_data.prev_num) }}" class="btn">上一页</a>
+                </li>
+            {% endif %}
+            {% if page_data.has_next %}
+                <li class="next pagbuttons"><a role="navigation"
+                                               href="{{ url_for(page_function,page=page_data.next_num) }}" class="btn">下一页</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endmacro %}

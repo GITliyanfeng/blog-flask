@@ -1,0 +1,72 @@
+{% extends 'back/base.html' %}
+{% block top_js %}
+    {{ pagedown.include_pagedown() }}
+{% endblock %}
+{% from 'back/customer_macro/macro_own.html' import breadcrumb as breadcrumb %}
+
+{% block note %}
+{% endblock note %}
+{% block breadcrumb %}
+    {{ breadcrumb(two=title,activate=2) }}
+{% endblock breadcrumb %}
+{% block content %}
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption font-green bold">
+                <span class="am-icon-code"></span>{{ page_title }}
+            </div>
+        </div>
+        <div class="tpl-block ">
+            <div class="am-g tpl-amazeui-form">
+                <div class="am-u-sm-12 am-u-md-9">
+                    <form class="am-form am-form-horizontal" method="post">
+                        {{ form.csrf_token }}
+                        <div class="am-form-group">
+                            <label for="post-title" class="am-u-sm-3 am-form-label">{{ form.title.label }}</label>
+                            <div class="am-u-sm-9">
+                                {{ form.title(id="post-title",placeholder="博文标题") }}
+                                {% if form.title.errors %}
+                                    <small class="am-alert am-alert-danger">{{ form.title.errors.0 }}</small>
+                                {% else %}
+                                    <small class="">请输入博文标题</small>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="post-dest" class="am-u-sm-3 am-form-label">{{ form.desc.label }}</label>
+                            <div class="am-u-sm-9">
+                                {{ form.desc(id='post-desc',placeholder='博文简述') }}
+                                {% if form.desc.errors %}
+                                    <small class="am-alert am-alert-danger">{{ form.desc.errors.0 }}</small>
+                                {% else %}
+                                    <small class="">请输入博文简述</small>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label class="am-u-sm-3 am-form-label">{{ form.body.label }}</label>
+                            <div class="am-u-sm-9">
+                                {{ form.body(only_input=True,palceholder='内容',rows=20) }}
+                                {% if form.body.errors %}
+                                    <small class="am-alert am-alert-danger">{{ form.body.errors.0 }}</small>
+                                {% else %}
+                                    <small class="">请输入博文内容-markdown格式</small>
+                                {% endif %}
+                                <div>{{ form.body(only_preview=True) }}</div>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                {{ form.submit(type='submit',class='am-btn am-btn-primary') }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}

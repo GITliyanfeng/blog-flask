@@ -1,0 +1,10 @@
+{% macro breadcrumb(two=None,two_url='#',three=None,activate=1) %}
+    <ol class="am-breadcrumb">
+        <li><a href="/admin" class="am-icon-home {% if activate == 1 %}am-active{% endif %}">首页</a></li>
+        {% if two %}
+            <li class="{% if activate == 2 %}am-active{% endif %}"><a href="{{ two_url }}">{{ two }}</a>
+            </li>{% endif %}
+        {% if three %}
+            <li class="{% if activate == 3 %}am-active{% endif %}">{{ three }}</li>{% endif %}
+    </ol>
+{% endmacro %}

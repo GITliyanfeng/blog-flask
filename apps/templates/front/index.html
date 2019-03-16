@@ -1,0 +1,29 @@
+{% extends 'front/base.html' %}
+{% from 'front/marco_custorm/pagination.html' import pagination as pagination %}
+{% block content %}
+    {% for article in posts %}
+        <div class="post animated fadeInDown">
+            <div class="post-title">
+                <h3><a href="{{ url_for('post.details',post_id=article.id) }}">{{ article.title }}</a>
+                </h3>
+            </div>
+            <div class="post-content">
+                <div class="p_part"><p>{{ article.desc }}</p>
+                </div>
+
+                <div class="p_part"><p></p></div>
+            </div>
+            <div class="post-footer">
+                <div class="meta">
+                    <div class="info"><i class="fa fa-sun-o"></i><span class="date">{{ article.add_time }}</span>
+                        <i class="fa fa-comment-o"></i><a
+                                href="">{{ article.author.username }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
+{% block pagination %}
+    {{ pagination(page_function='main.index',page_data=paginations) }}
+{% endblock pagination %}

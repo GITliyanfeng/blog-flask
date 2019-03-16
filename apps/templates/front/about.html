@@ -1,0 +1,26 @@
+{% extends 'front/base.html' %}
+{% block information %}
+    <div class="information">
+        <div class="back_btn">
+            <li><a onclick="window.history.go(-1)" style="display:none;" class="fa fa-chevron-left"></a>
+            </li>
+        </div>
+        <div class="avatar"><img src="{{ url_for('static',filename='user/user_face/default.jpg') }}">
+        </div>
+    </div>
+{% endblock information %}
+{% block content %}
+    <div class="about animated fadeInDown">
+        {{ read_md('http_method.md')|md|safe }}
+    </div>
+{% endblock content %}
+{% block pagination %}
+{% endblock pagination %}
+
+
+
+
+
+
+
+

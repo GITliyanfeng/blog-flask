@@ -1,0 +1,27 @@
+{% macro pagination(page_function,page_data) %}
+    <div class="am-cf">
+        <div class="am-fr">
+            <ul class="am-pagination tpl-pagination">
+                <li><a href="{{ url_for(page_function,page=1) }}">首页</a></li>
+                {% if page_data.has_prev %}
+                    <li class=""><a href="{{ url_for(page_function,page=page_data.prev_num) }}">«</a></li>
+                {% endif %}
+                {% for page in page_data.iter_pages(1,1,3,1) %}
+                    {% if page %}
+                        {% if page != page_data.page %}
+                            <li class=""><a href="{{ url_for(page_function,page=page) }}">{{ page }}</a></li>
+                        {% else %}
+                            <li class="am-active"><a href="#">{{ page }}</a></li>
+                        {% endif %}
+                    {% else %}
+                        <li class="am-disabled"><a class="am-disabled" href="">&hellip;</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_data.has_next %}
+                    <li><a href="{{ url_for(page_function,page=page_data.next_num) }}">»</a></li>
+                {% endif %}
+                <li><a href="{{ url_for(page_function,page=page_data.pages) }}">尾页</a></li>
+            </ul>
+        </div>
+    </div>
+{% endmacro %}

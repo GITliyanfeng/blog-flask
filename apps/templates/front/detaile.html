@@ -1,0 +1,33 @@
+{% extends 'front/base.html' %}
+ {% block information %}
+            <div class="information">
+                <div class="back_btn">
+                    <li><a onclick="window.history.go(-1)" style="display:inline-block;" class="fa fa-chevron-left"></a>
+                    </li>
+                </div>
+                <div class="avatar"><img src="
+
+
+            {% if post.face %}{{ url_for('static',filename=post.face) }}{% else %}{{ url_for('static',filename='user/user_face/default.jpg') }}{% endif %}">
+                </div>
+            </div>
+        {% endblock information %}
+{% block content %}
+    <div class="post animated fadeInDown">
+        <div class="post-title"><h3>{{ post.title }}</h3></div>
+        <div class="post-content">
+            {{ post.body_html|safe }}
+        </div>
+        <div class="post-footer">
+            <div class="meta">
+                <div class="info"><i class="fa fa-sun-o"></i><span
+                        class="date">{{ post.add_time }}</span>
+                    <i class="fa fa-comment-o"></i><a
+                            href="">{{ post.author.username }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block pagination %}
+{% endblock pagination %}
